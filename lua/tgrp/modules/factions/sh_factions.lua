@@ -110,6 +110,24 @@ function TGRP.Factions.PeutQuinque(factionID)
 end
 
 -- ============================================================
+-- MAPPING ACC2 ↔ TGRP
+-- ============================================================
+
+--- Retourne l'ID de faction TGRP à partir d'un ID de faction ACC2
+--- @param acc2FactionId number L'ID de faction ACC2
+--- @return string|nil L'ID de faction TGRP
+function TGRP.Factions.DepuisACC2ID(acc2FactionId)
+    return TGRP.ACC2Bridge and TGRP.ACC2Bridge.FactionTGRPDepuisACC2(acc2FactionId) or nil
+end
+
+--- Retourne l'ID de faction ACC2 à partir d'un ID de faction TGRP
+--- @param tgrpFactionId string L'ID de faction TGRP
+--- @return number|nil L'ID de faction ACC2
+function TGRP.Factions.VersACC2ID(tgrpFactionId)
+    return TGRP.ACC2Bridge and TGRP.ACC2Bridge.FactionACC2DepuisTGRP(tgrpFactionId) or nil
+end
+
+-- ============================================================
 -- APPLICATION SUR UN JOUEUR
 -- ============================================================
 

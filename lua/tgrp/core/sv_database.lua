@@ -212,16 +212,13 @@ function TGRP.DB.CreerTables()
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     ]])
 
-    -- Table des personnages
+    -- Table des personnages (liée à ACC2 via acc2_character_id)
     TGRP.DB.Executer([[
         CREATE TABLE IF NOT EXISTS tgrp_personnages (
             id INT AUTO_INCREMENT PRIMARY KEY,
             steamid VARCHAR(32) NOT NULL,
-            slot INT NOT NULL DEFAULT 1,
-            nom VARCHAR(64) NOT NULL,
+            acc2_character_id INT NOT NULL UNIQUE,
             faction VARCHAR(16) NOT NULL,
-            model VARCHAR(256) NOT NULL,
-            donnees_apparence TEXT,
             rc INT DEFAULT 100,
             faim FLOAT DEFAULT 80,
             hp INT DEFAULT 100,
@@ -233,10 +230,11 @@ function TGRP.DB.CreerTables()
             hotbar TEXT,
             skills_debloquees TEXT,
             rang_ccg VARCHAR(32) DEFAULT 'academie',
+            reroll_utilise TINYINT(1) DEFAULT 0,
             date_creation DATETIME DEFAULT CURRENT_TIMESTAMP,
             derniere_utilisation DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-            UNIQUE KEY uk_steamid_slot (steamid, slot),
             INDEX idx_steamid (steamid),
+            INDEX idx_acc2_char (acc2_character_id),
             INDEX idx_faction (faction)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     ]])

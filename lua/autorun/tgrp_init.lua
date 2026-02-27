@@ -85,6 +85,7 @@ local modulesOrdre = {
     -- Sprint 0-1 : Fondations
     "factions",
     "characters",
+    "acc2_bridge", -- Pont entre ACC2 et TGRP (doit charger après factions et characters)
 
     -- Sprint 2 : RC & Mort
     "rc",
