@@ -31,14 +31,15 @@
 ## Sprint 2 — Système RC, Faim & Mort
 > Objectif : Le cycle de vie/mort fonctionne avec le système RC.
 
-- [ ] **2.1** Système de valeur RC (stockage, progression, seuils de rang)
-- [ ] **2.2** Système de faim des Ghouls (décroissance, effets)
-- [ ] **2.3** Système de mort (0 HP → respawn hôpital)
-- [ ] **2.4** Spawn de cadavres à la mort
-- [ ] **2.5** Ghoul : manger un cadavre (gain RC + réduction faim)
-- [ ] **2.6** CCG : détruire un cadavre OU extraire poche RC
+- [ ] **2.1** Système de valeur RC (stockage, progression permanente/cumulative, seuils de rang)
+- [ ] **2.2** Système de faim des Ghouls (décroissance avec le temps, malus par seuils)
+- [ ] **2.3** Système de mort (0 HP → état ragdoll, joueur bloqué sur son corps)
+- [ ] **2.4** Système d'interaction avec les cadavres (le mort ne respawn que si on interagit)
+- [ ] **2.5** Ghoul : manger un cadavre → gain RC permanent + réduction faim → le mort respawn
+- [ ] **2.6** CCG : détruire un cadavre → le mort respawn
+- [ ] **2.7** CCG : extraire poche RC (cadavre de ghoul) → matériau de craft → le mort respawn
 
-**Livrable** : Un joueur meurt → cadavre spawn → une ghoul peut le manger → son RC monte.
+**Livrable** : Un joueur meurt → il reste sur son corps → une ghoul le mange (RC↑) ou un CCG interagit → le mort respawn à l'hôpital.
 
 ---
 
@@ -206,4 +207,4 @@ Sprint 12 (Polish & Lancement)
 ---
 
 *Document mis à jour le : 2026-02-27*
-*Version : 1.0*
+*Version : 1.1 — Correction système de mort (ragdoll) et RC permanent*

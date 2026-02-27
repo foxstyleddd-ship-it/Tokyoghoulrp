@@ -78,17 +78,26 @@ Développement complet côté code ; le client (propriétaire du serveur) n'aura
 - **Compétences** : Utilisées depuis la hotbar [1-4]
 - **Équilibrage** : Ghoul vs CCG doit être équilibré
 
-### 4.4 Système RC & Faim (Ghouls)
-- **Valeur RC** : Augmente en mangeant des cadavres → détermine le rang
-- **Faim** : Système de faim, la ghoul doit se nourrir régulièrement
+### 4.4 Système RC & Rang (Ghouls)
+- **Valeur RC** : Progression **permanente et cumulative** — ne diminue JAMAIS
+- Augmente en mangeant des cadavres
+- Place la Ghoul dans un **rang** (E → D → C → B → A → S → SS)
+- Le rang détermine les **compétences accessibles** dans le skill tree
 - **Risque** : RC élevé = plus repérable par le CCG
-- **Progression** : RC bas → rang faible, RC élevé → rang élevé → compétences plus puissantes
 
-### 4.5 Mort & Cadavres
-- Joueur à 0 HP → **respawn à l'hôpital**
-- Un **cadavre** est spawné à l'emplacement de la mort
-- **Ghoul** : Peut manger le cadavre → gain de RC
-- **CCG** : Peut détruire le cadavre OU extraire la poche RC → utilisable pour crafter une Quinque
+### 4.5 Faim (Ghouls)
+- Système de faim séparé du RC
+- La faim **diminue avec le temps**
+- La ghoul doit **manger des cadavres** pour réduire sa faim
+- Seuils de faim → malus (vitesse réduite, dégâts réduits, perte de HP)
+
+### 4.6 Mort & Cadavres
+- Joueur à 0 HP → il est **mort mais reste sur son corps** (état ragdoll, ne peut plus agir)
+- Le joueur **ne respawn à l'hôpital que** lorsqu'une interaction se produit :
+  - Une **Ghoul mange son corps** → gain de RC + réduction faim, le mort respawn
+  - Un **CCG détruit le corps** → le mort respawn
+  - Un **CCG extrait la poche RC** (si cadavre de ghoul) → récupère un matériau pour forger une Quinque, le mort respawn
+- Le joueur mort est **bloqué tant que personne n'interagit avec son corps**
 
 ### 4.6 Inventaire & Équipement
 - Système d'**inventaire** complet
@@ -218,7 +227,7 @@ Tous dans `tgrp/config/` :
 - [ ] Faction Civil : gameplay exact, possibilité de changer de faction ?
 - [ ] Boutique : monnaie réelle, in-game, ou les deux ?
 - [ ] Types de pièces d'équipement et leurs sources (loot, craft, boutique)
-- [ ] Durée de vie des cadavres sur la map
+- [ ] Timeout cadavre : le joueur mort reste bloqué indéfiniment ou y a-t-il un timer de respawn forcé ?
 - [ ] Plusieurs ghouls peuvent-elles manger le même cadavre ?
 - [ ] Processus exact du craft de Quinque (PNJ ? Atelier ? Menu ?)
 
@@ -235,4 +244,4 @@ Tous dans `tgrp/config/` :
 ---
 
 *Document mis à jour le : 2026-02-27*
-*Version : 1.0*
+*Version : 1.1 — Correction système de mort (ragdoll) et RC permanent*

@@ -19,8 +19,9 @@ TGRP.Config.General = {
     -- Nombre maximum de slots de personnages par joueur
     MaxPersonnages = 3,
 
-    -- Durée de vie d'un cadavre en secondes avant disparition
-    DureeCadavre = 300, -- 5 minutes
+    -- Le joueur mort reste sur son corps jusqu'à interaction
+    -- Timer de respawn forcé en secondes (0 = pas de timer, le joueur attend indéfiniment)
+    TimeoutRespawn = 300, -- 5 minutes max avant respawn forcé (0 pour désactiver)
 
     -- Plusieurs ghouls peuvent manger le même cadavre ?
     CadavrePartage = false,

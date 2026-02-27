@@ -23,8 +23,8 @@ TGRP.Config.RC.Valeurs = {
     -- RC gagné en mangeant un cadavre de PNJ
     GainCadavrePNJ = 20,
 
-    -- Perte de RC à la mort (pourcentage)
-    PerteRCMort = 5, -- 5% du RC total
+    -- Le RC est une valeur PERMANENTE et CUMULATIVE
+    -- Il ne diminue JAMAIS — il ne fait que monter
 }
 
 -- ============================================================
