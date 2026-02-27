@@ -71,9 +71,14 @@ print("[TGRP] Tokyo Ghoul RP v" .. TGRP.Version)
 print("[TGRP] Chargement en cours...")
 print("[TGRP] ========================================")
 
--- 1. Charger le core (config, database, networking, utils)
+-- 1. Charger le core dans l'ordre de dépendance
+-- Logs d'abord (utilisé par tout), puis config, puis utils, puis network, puis database
+TGRP.ChargerFichier(RACINE .. "core/sh_logs.lua")
 TGRP.ChargerRepertoire(RACINE .. "config/")
-TGRP.ChargerRepertoire(RACINE .. "core/")
+TGRP.ChargerFichier(RACINE .. "core/sh_config.lua")
+TGRP.ChargerFichier(RACINE .. "core/sh_utils.lua")
+TGRP.ChargerFichier(RACINE .. "core/sh_network.lua")
+TGRP.ChargerFichier(RACINE .. "core/sv_database.lua")
 
 -- 2. Charger les modules dans l'ordre de dépendance
 local modulesOrdre = {
